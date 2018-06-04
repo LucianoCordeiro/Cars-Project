@@ -4,6 +4,7 @@ import android.util.Log
 
 
 class CarrosApplication : Application() {
+    private val TAG = "CarrosApplication"
     override fun onCreate() {
         super.onCreate()
         //Save the instance so that we can access it as Singleton
@@ -18,5 +19,10 @@ class CarrosApplication : Application() {
             }
             return appInstance!!
         }
+    }
+
+    override fun onTerminate() {
+        super.onTerminate()
+        Log.d(TAG, "CarrosApplication.onTerminate()")
     }
 }
