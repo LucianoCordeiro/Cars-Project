@@ -57,7 +57,8 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
                 startActivity(intent)
             }
             R.id.nav_item_site_livro -> {
-                toast("Clicou em site do livro")
+                val intent = Intent(context, SiteLivroActivity::class.java)
+                startActivity(intent)
             }
             R.id.nav_item_settings -> {
                 toast("Clicou em configurações")
