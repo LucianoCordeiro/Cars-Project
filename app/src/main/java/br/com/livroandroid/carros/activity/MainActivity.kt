@@ -3,15 +3,19 @@ package br.com.livroandroid.carros.activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import br.com.livroandroid.carros.R
+import br.com.livroandroid.carros.adapter.TabsAdapter
 import br.com.livroandroid.carros.domain.TipoCarro
 import br.com.livroandroid.carros.extensions.setupToolbar
 import br.com.livroandroid.carros.extensions.toast
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedListener {
 
@@ -20,6 +24,16 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         setContentView(R.layout.activity_main)
         setupToolbar(R.id.toolbar)
         setupNavDrawer()
+        setupViewPagerTabs()
+    }
+
+    private fun setupViewPagerTabs() {
+        viewPager.offscreenPageLimit = 2
+        viewPager.adapter = TabsAdapter(context, supportFragmentManager)
+        tabLayout.setupWithViewPager(viewPager)
+
+        val cor = ContextCompat.getColor(context, R.color.white)
+        tabLayout.setTabTextColors(cor, cor)
     }
 
     //Configure the Navigation Drawer

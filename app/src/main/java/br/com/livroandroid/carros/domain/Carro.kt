@@ -48,9 +48,8 @@ class Carro : Parcelable {
     }
 
     companion object {
-        private val serialVersionUID = 6601006766832473959L
         @JvmField val CREATOR: Parcelable.Creator<Carro> =
-                object: Parcelable.Creator<Carro> {
+                object : Parcelable.Creator<Carro> {
                     override fun createFromParcel(p: Parcel): Carro {
                         val c = Carro()
                         c.readFromParcel(p)
