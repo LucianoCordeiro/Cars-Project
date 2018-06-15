@@ -3,6 +3,7 @@ package br.com.livroandroid.carros.activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
@@ -25,6 +26,10 @@ class MainActivity : BaseActivity() , NavigationView.OnNavigationItemSelectedLis
         setupToolbar(R.id.toolbar)
         setupNavDrawer()
         setupViewPagerTabs()
+        fab.setOnClickListener() {
+            val snack = Snackbar.make(it, "Clicou no botao FAB", Snackbar.LENGTH_LONG)
+            snack.show()
+        }
     }
 
     private fun setupViewPagerTabs() {
