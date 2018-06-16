@@ -52,7 +52,7 @@ class CarrosFragment : Fragment() {
 
     fun taskCarros() {
 
-        this.carros = CarroService.getCarros(context, this.tipo)
+        this.carros = CarroService.getCarros(context!!, this.tipo)
 
         recyclerView?.adapter = CarroAdapter(carros, {onClickCarro(it)})
     }
